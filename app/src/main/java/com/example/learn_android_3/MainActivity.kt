@@ -5,6 +5,8 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -21,21 +23,47 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        val button1: Button = findViewById(R.id.button1)
+
+        val button1: Button = findViewById(R.id.button1_pic)
         //将当前的 MainActivity 实例（即 this）设置为按钮（button1）的点击事件监听器
         //这样，当按钮被点击时，系统会调用 MainActivity 的 onClick 方法来处理点击事件
         button1.setOnClickListener(this)
+
+        val button2: Button = findViewById(R.id.button2_visibility)
+        button2.setOnClickListener(this)
+
+        val button3: Button = findViewById(R.id.button3_progress)
+        button3.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.button1 ->
+            R.id.button1_pic ->
             {
                 Log.v(TAG, "we click button1")
                 val editText1: EditText = findViewById(R.id.editText1)
                 //实际上调用的却是EditText的getText()方法,不过在kotlin中可以这样写（语法糖）
                 val inputText = editText1.text.toString()
                 Toast.makeText(this, inputText, Toast.LENGTH_SHORT).show()
+
+                //在代码中动态更改pic source
+                val imageView1: ImageView = findViewById(R.id.imageView1)
+                imageView1.setImageResource(R.drawable.p3)
+            }
+
+            R.id.button2_visibility ->
+            {
+                val progressBar: ProgressBar = findViewById(R.id.progressBar1)
+                if (progressBar.visibility == View.VISIBLE) progressBar.visibility = View.GONE
+                else progressBar.visibility = View.VISIBLE
+            }
+
+            R.id.button3_progress ->
+            {
+                val progressBar: ProgressBar = findViewById(R.id.progressBar1)
+                progressBar.progress += 10
+
+
             }
         }
     }
