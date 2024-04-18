@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -27,7 +29,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.button1 -> Log.v(TAG, "we click button1")
+            R.id.button1 ->
+            {
+                Log.v(TAG, "we click button1")
+                val editText1: EditText = findViewById(R.id.editText1)
+                //实际上调用的却是EditText的getText()方法,不过在kotlin中可以这样写（语法糖）
+                val inputText = editText1.text.toString()
+                Toast.makeText(this, inputText, Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }
