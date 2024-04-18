@@ -5,5 +5,7 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.Learn_Android_3" parent="Base.Theme.Learn_Android_3" />
+    <style name="Theme.Learn_Android_3" parent="Theme.AppCompat.DayNight" >
+    </style>
+
 </resources>
