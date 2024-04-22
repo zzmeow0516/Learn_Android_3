@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
+        /*
         val button1: Button = findViewById(R.id.button1_pic)
         //将当前的 MainActivity 实例（即 this）设置为按钮（button1）的点击事件监听器
         //这样，当按钮被点击时，系统会调用 MainActivity 的 onClick 方法来处理点击事件
@@ -38,6 +39,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         val button4: Button = findViewById(R.id.button4_alertdialog)
         button4.setOnClickListener(this)
+        */
+
+        //button监听器代码优化
+        val listButton = listOf(R.id.button1_pic,
+            R.id.button2_visibility,
+            R.id.button3_progress,
+            R.id.button4_alertdialog)
+        listButton.forEach { id -> findViewById<Button>(id).setOnClickListener(this) }
     }
 
     override fun onClick(v: View?) {
