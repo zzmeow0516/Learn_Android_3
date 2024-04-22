@@ -9,7 +9,7 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="247dp"
+        android:layout_height="40dp"
         android:gravity="center"
         android:rotationX="36"
         android:text="This is TextView"
@@ -35,6 +35,7 @@
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:src="@drawable/p1"
         />
 

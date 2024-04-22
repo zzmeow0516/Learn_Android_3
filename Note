@@ -42,3 +42,14 @@ DrawerLayout：抽屉布局，实现侧滑菜单。
 
 11.页面切换：
 ViewPager：页面切换控件，常与选项卡布局或指示器结合使用。
+
+--------------------------------
+二. 布局
+linearlayout
+relativelayout:
+    相对于父布局：
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true
+    相对于其他控件：
+        android:layout_above="@id/button3"
+        android:layout_toLeftOf="@id/button3"
