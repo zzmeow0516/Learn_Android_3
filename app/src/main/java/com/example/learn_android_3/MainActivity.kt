@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -34,6 +35,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         val button3: Button = findViewById(R.id.button3_progress)
         button3.setOnClickListener(this)
+
+        val button4: Button = findViewById(R.id.button4_alertdialog)
+        button4.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -62,9 +66,27 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             {
                 val progressBar: ProgressBar = findViewById(R.id.progressBar1)
                 progressBar.progress += 10
-
-
             }
+
+            R.id.button4_alertdialog ->
+            {
+                //AlertDialog.Builder: dialog构建
+                //apply可以包含一个代码块，用于对 dialog进行一系列初始化
+                AlertDialog.Builder(this).apply {
+                    setTitle("AlertDialog")
+                    setMessage("warning !")
+                    setCancelable(false)
+                    //dialog代表对话框本身，which代表点击了哪一个按钮， 但好像是废话，因为我点击的按钮肯定是确定好的
+                    setPositiveButton("OK") {dialog, which ->
+                        //这边添加点击后的逻辑
+                        Log.v(TAG, "we clicked OK")
+                    }
+                    setNegativeButton("Cancel") {dialog, which ->
+                        Log.v(TAG, "we clicked Cancel")
+                    }.show()                //AlertDialog.Builder(this){...}.show()展示对话框
+                }
+            }
+
         }
     }
 }
